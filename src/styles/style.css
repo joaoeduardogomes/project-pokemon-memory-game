@@ -1,0 +1,128 @@
+:root {
+    --color-normal: #9FA19F;
+    --color-fighting: #FF8000;
+    --color-flying: #81B9EF;
+    --color-poison: #9141CB;
+    --color-ground: #915121;
+    --color-rock: #AFA981;
+    --color-bug: #91A119;
+    --color-ghost: #704170;
+    --color-steel: #60A1B8;
+    --color-fire: #E62829;
+    --color-water: #2980EF;
+    --color-grass: #3FA129;
+    --color-electric: #FAC000;
+    --color-psychic: #EF4179;
+    --color-ice: #3DCEF3;
+    --color-dragon: #5060E1;
+    --color-dark: #624D4E;
+    --color-fairy: #EF70EF;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1rem;
+
+    width: fit-content;
+    margin: auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    max-width: 240px;
+    aspect-ratio: 1 / 1.5;
+
+    .cardImg {
+        width: 80%;
+    }
+
+    .cardName {
+        font-size: 1.5rem;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: .2rem;
+    }
+
+    .types {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    .type {
+        padding: .7rem;
+        border-radius: 8px;
+        color: #f5f5f5;
+        text-shadow: 1px 1px 5px #000;
+        font-size: 1.3rem;
+        width: 4rem;
+        text-align: center;
+    }
+}
+
+p[data-type="normal"] {
+    background-color: var(--color-normal);
+}
+p[data-type="fighting"] {
+    background-color: var(--color-fighting);
+}
+p[data-type="flying"] {
+    background-color: var(--color-flying);
+}
+p[data-type="poison"] {
+    background-color: var(--color-poison);
+}
+p[data-type="ground"] {
+    background-color: var(--color-ground);
+}
+p[data-type="rock"] {
+    background-color: var(--color-rock);
+}
+p[data-type="bug"] {
+    background-color: var(--color-bug);
+}
+p[data-type="ghost"] {
+    background-color: var(--color-ghost);
+}
+p[data-type="steel"] {
+    background-color: var(--color-steel);
+}
+p[data-type="fire"] {
+    background-color: var(--color-fire);
+}
+p[data-type="water"] {
+    background-color: var(--color-water);
+}
+p[data-type="grass"] {
+    background-color: var(--color-grass);
+}
+p[data-type="electric"] {
+    background-color: var(--color-electric);
+}
+p[data-type="psychic"] {
+    background-color: var(--color-psychic);
+}
+p[data-type="ice"] {
+    background-color: var(--color-ice);
+}
+p[data-type="dragon"] {
+    background-color: var(--color-dragon);
+}
+p[data-type="dark"] {
+    background-color: var(--color-dark);
+}
+p[data-type="fairy"] {
+    background-color: var(--color-fairy);
+}
+
+.hidden {
+    display: none;
+}
