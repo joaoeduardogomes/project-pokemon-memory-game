@@ -1,5 +1,6 @@
 import { pokemonNamesArray } from "./pokemonNames.js"
 
+const sortedNames = []
 const cardsArray = []
 
 function getPokemonData(pokemonName) {
@@ -19,8 +20,15 @@ function saveData(data) {
 }
 
 function randomPokemonName() {
+    let sortedName
+
+    do {
     const randomIndex = Math.floor(Math.random() * pokemonNamesArray.length)
-    return pokemonNamesArray[randomIndex].toLowerCase()
+    sortedName = pokemonNamesArray[randomIndex].toLowerCase()
+    } while (sortedNames.includes(sortedName))
+
+    sortedNames.push(sortedName)
+    return sortedName
 }
 
 function createCard() {
