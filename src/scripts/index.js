@@ -76,19 +76,28 @@ async function addValuesToCard({ card, cardImg, cardName, cardType1, cardType2 }
     }
 }
 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        // Pick a random index from 0 to i
+        const j = Math.floor(Math.random() * (i + 1));
+        
+        // Swap elements at indices i and j
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+
 async function showData() {
     while (cardsArray.length < 16) {
         const cardElements = createCard()
         await addValuesToCard(cardElements)
     }
     
-
-    console.log(cardsArray)
-    console.log(cardsArray.length)
-    console.log(typeof(cardsArray))
+    const shuffledCardsArray = shuffleArray(cardsArray)
 
     const fragment = document.createDocumentFragment()
-    for (const card of cardsArray) {
+    for (const card of shuffledCardsArray) {
         fragment.append(card)
     }
     document.querySelector("main").appendChild(fragment)
