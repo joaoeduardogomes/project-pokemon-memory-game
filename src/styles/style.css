@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarala:wght@400;700&display=swap');
+
 :root {
     --color-normal: #9FA19F;
     --color-fighting: #FF8000;
@@ -17,6 +19,7 @@
     --color-dragon: #5060E1;
     --color-dark: #624D4E;
     --color-fairy: #EF70EF;
+    --main-font: 'Sarala', sans-serif;
 }
 
 main {
@@ -26,6 +29,7 @@ main {
 
     width: fit-content;
     margin: auto;
+    font-family: var(--main-font);
 }
 
 .card {
