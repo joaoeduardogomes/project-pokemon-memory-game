@@ -61,6 +61,7 @@ async function addValuesToCard({ card, cardImg, cardName, cardType1, cardType2 }
         const data = await getPokemonData(randomPokemonName())
         console.log(data)
 
+        card.dataset.pokemonName = data.name
         cardName.textContent = data.name
         cardType1.textContent = data.type1
         cardType1.dataset.type = data.type1
