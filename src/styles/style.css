@@ -22,6 +22,12 @@
     --main-font: 'Sarala', sans-serif;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 main {
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -30,85 +36,59 @@ main {
     width: fit-content;
     margin: auto;
     font-family: var(--main-font);
+    margin: 2rem;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     background-color: #f5f5f5;
-    max-width: 220px;
+    width: 220px;
     aspect-ratio: 1 / 1;
     border-radius: 12px;
+
+    position: relative;
+    perspective: 1000px; /* Needed for 3D effect */
+    cursor: pointer;
+}
+
+.card > div {
+    border-radius: 8px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.5s ease-in-out; /* Smooth flipping */
     box-shadow: 3px 3px 7px #00000071;
-    padding: 1rem;
+}
+
+.card-back {
+    background-image: linear-gradient(to bottom, #E41F25 50%, #FFF 50%);
+    transform: rotateY(0); /* Default: visible side */
+}
+
+.card-front {
+    display: flex; /* Ensure proper layout for the image */
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* Fallback color */
+    transform: rotateY(180deg); /* Default: hidden */
     border: 6px solid;
-    border-color: #e4e4e4 #000;
-
-    .cardImg {
-        width: 80%;
-        filter: drop-shadow(3px 3px 7px #ffffff85);
-
-    }
-
 }
 
-/* div[data-type1="normal"] {
-    background-color: var(--color-normal);
+.cardImg {
+    max-width: 90%; /* Ensure image fits inside card */
+    max-height: 90%;
+    filter: drop-shadow(3px 3px 7px #ffffff85); /* Optional visual effect */
 }
-div[data-type1="fighting"] {
-    background-color: var(--color-fighting);
+
+.card.flipped .card-front {
+    transform: rotateY(0); /* Make front visible */
 }
-div[data-type1="flying"] {
-    background-color: var(--color-flying);
+
+.card.flipped .card-back {
+    transform: rotateY(180deg); /* Hide back */
 }
-div[data-type1="poison"] {
-    background-color: var(--color-poison);
-}
-div[data-type1="ground"] {
-    background-color: var(--color-ground);
-}
-div[data-type1="rock"] {
-    background-color: var(--color-rock);
-}
-div[data-type1="bug"] {
-    background-color: var(--color-bug);
-}
-div[data-type1="ghost"] {
-    background-color: var(--color-ghost);
-}
-div[data-type1="steel"] {
-    background-color: var(--color-steel);
-}
-div[data-type1="fire"] {
-    background-color: var(--color-fire);
-}
-div[data-type1="water"] {
-    background-color: var(--color-water);
-}
-div[data-type1="grass"] {
-    background-color: var(--color-grass);
-}
-div[data-type1="electric"] {
-    background-color: var(--color-electric);
-}
-div[data-type1="psychic"] {
-    background-color: var(--color-psychic);
-}
-div[data-type1="ice"] {
-    background-color: var(--color-ice);
-}
-div[data-type1="dragon"] {
-    background-color: var(--color-dragon);
-}
-div[data-type1="dark"] {
-    background-color: var(--color-dark);
-}
-div[data-type1="fairy"] {
-    background-color: var(--color-fairy);
-}
+
 
 .hidden {
     display: none;
-} */
+}

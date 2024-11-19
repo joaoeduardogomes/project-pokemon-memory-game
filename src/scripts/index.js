@@ -35,22 +35,29 @@ function createCard() {
     const card = document.createElement("div")
     card.classList.add("card")
 
+    const cardBack = document.createElement("div")
+    cardBack.classList.add("card-back")
+
+    const cardFront = document.createElement("div")
+    cardFront.classList.add("card-front")
+
     const cardImg = document.createElement("img")
     cardImg.classList.add("cardImg")
 
-    card.append(cardImg)
+    cardFront.append(cardImg)
+    card.append(cardBack, cardFront)
 
-    return { card, cardImg }
+    return { card, cardBack, cardFront, cardImg }
 }
 
-async function addValuesToCard({ card, cardImg }) {
+async function addValuesToCard({ card, cardFront, cardImg }) {
     try {
         const data = await getPokemonData(randomPokemonName())
-        console.log(data)
+        //console.log(data)
 
-        card.dataset.pokemonName = data.name
-        card.dataset.type1 = data.type1
-        card.dataset.type2 = data.type2 
+        cardFront.dataset.pokemonName = data.name
+        cardFront.dataset.type1 = data.type1
+        cardFront.dataset.type2 = data.type2 
         cardImg.src = data.image
 
         cardsArray.push(card)
@@ -59,21 +66,6 @@ async function addValuesToCard({ card, cardImg }) {
     } catch (error) {
         console.error('Error fetching data:', error)
     }
-}
-
-function changeBackgroundColor() {
-    cardsArray.forEach(card => {
-        if (!card.dataset.type2) {
-            card.style.backgroundImage = `linear-gradient(to top left, var(--color-${card.dataset.type1}) 50%, #fff 50%)`
-
-            card.style.borderColor = `var(--color-${card.dataset.type1}) #fff #fff var(--color-${card.dataset.type1})`
-        }
-        else {
-            card.style.backgroundImage = `linear-gradient(to top right, var(--color-${card.dataset.type1}) 50%, var(--color-${card.dataset.type2}) 50%)`
-
-            card.style.borderColor = `var(--color-${card.dataset.type1}) var(--color-${card.dataset.type1}) var(--color-${card.dataset.type2}) var(--color-${card.dataset.type2})`
-        }
-    })
 }
 
 function shuffleArray(array) {
@@ -101,7 +93,9 @@ async function showData() {
         fragment.append(card)
     }
     document.querySelector("main").appendChild(fragment)
-    changeBackgroundColor()
+
+    // Notify that cards are ready
+    document.dispatchEvent(new Event("cardsReady"));
 }
 
 showData()
