@@ -38,36 +38,19 @@ function createCard() {
     const cardImg = document.createElement("img")
     cardImg.classList.add("cardImg")
 
-    const cardName = document.createElement("p")
-    cardName.classList.add("cardName")
+    card.append(cardImg)
 
-    const cardTypes = document.createElement("span")
-    cardTypes.classList.add("types")
-
-    const cardType1 = document.createElement("p")
-    cardType1.classList.add("type")
-
-    const cardType2 = document.createElement("p")
-    cardType2.classList.add("type")
-
-    card.append(cardImg, cardName, cardTypes)
-    cardTypes.append(cardType1, cardType2)
-
-    return { card, cardImg, cardName, cardType1, cardType2 }
+    return { card, cardImg }
 }
 
-async function addValuesToCard({ card, cardImg, cardName, cardType1, cardType2 }) {
+async function addValuesToCard({ card, cardImg }) {
     try {
         const data = await getPokemonData(randomPokemonName())
         console.log(data)
 
         card.dataset.pokemonName = data.name
-        cardName.textContent = data.name
-        cardType1.textContent = data.type1
-        cardType1.dataset.type = data.type1
-        cardType2.textContent = data.type2
-        cardType2.dataset.type = data.type2
-        cardType2.textContent == 0 ? cardType2.classList.add("hidden") : cardType2.classList.remove("hidden")
+        card.dataset.type1 = data.type1
+        card.dataset.type2 = data.type2 ? data.type2 : null
         cardImg.src = data.image
 
         cardsArray.push(card)

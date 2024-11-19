@@ -43,96 +43,72 @@ main {
     border-radius: 12px;
     box-shadow: 3px 3px 7px #00000071;
     padding: 1rem;
+    /* border: 8px solid;
+    border-color: var(--color-dragon); */
+    background-image: linear-gradient(var(--color-dragon) 50%, var(--color-fairy) 50%);
 
     .cardImg {
         width: 80%;
+        filter: drop-shadow(3px 3px 7px #00000071);
     }
 
-    .cardName {
-        font-size: 1.5rem;
-        text-align: center;
-        text-transform: uppercase;
-        font-weight: bold;
-        letter-spacing: .2rem;
-    }
-
-    .types {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 100%;
-    }
-    .type {
-        padding: .7rem;
-        border-radius: 8px;
-        color: #f5f5f5;
-        text-shadow: 1px 1px 5px #000;
-        width: 5rem;
-        text-align: center;
-        font-variant: small-caps;
-        font-weight: bold;
-        font-size: 1.1rem;
-        letter-spacing: .125rem;
-    }
 }
 
-p[data-type="normal"] {
+/* div[data-type1="normal"] {
     background-color: var(--color-normal);
 }
-p[data-type="fighting"] {
+div[data-type1="fighting"] {
     background-color: var(--color-fighting);
 }
-p[data-type="flying"] {
+div[data-type1="flying"] {
     background-color: var(--color-flying);
 }
-p[data-type="poison"] {
+div[data-type1="poison"] {
     background-color: var(--color-poison);
 }
-p[data-type="ground"] {
+div[data-type1="ground"] {
     background-color: var(--color-ground);
 }
-p[data-type="rock"] {
+div[data-type1="rock"] {
     background-color: var(--color-rock);
 }
-p[data-type="bug"] {
+div[data-type1="bug"] {
     background-color: var(--color-bug);
 }
-p[data-type="ghost"] {
+div[data-type1="ghost"] {
     background-color: var(--color-ghost);
 }
-p[data-type="steel"] {
+div[data-type1="steel"] {
     background-color: var(--color-steel);
 }
-p[data-type="fire"] {
+div[data-type1="fire"] {
     background-color: var(--color-fire);
 }
-p[data-type="water"] {
+div[data-type1="water"] {
     background-color: var(--color-water);
 }
-p[data-type="grass"] {
+div[data-type1="grass"] {
     background-color: var(--color-grass);
 }
-p[data-type="electric"] {
+div[data-type1="electric"] {
     background-color: var(--color-electric);
 }
-p[data-type="psychic"] {
+div[data-type1="psychic"] {
     background-color: var(--color-psychic);
 }
-p[data-type="ice"] {
+div[data-type1="ice"] {
     background-color: var(--color-ice);
 }
-p[data-type="dragon"] {
+div[data-type1="dragon"] {
     background-color: var(--color-dragon);
 }
-p[data-type="dark"] {
+div[data-type1="dark"] {
     background-color: var(--color-dark);
 }
-p[data-type="fairy"] {
+div[data-type1="fairy"] {
     background-color: var(--color-fairy);
 }
 
 .hidden {
     display: none;
-}
+} */
