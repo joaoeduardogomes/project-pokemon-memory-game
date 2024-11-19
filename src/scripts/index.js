@@ -37,6 +37,8 @@ function createCard() {
 
     const cardBack = document.createElement("div")
     cardBack.classList.add("card-back")
+    const circle = document.createElement("div")
+    circle.classList.add("circle")
 
     const cardFront = document.createElement("div")
     cardFront.classList.add("card-front")
@@ -45,6 +47,7 @@ function createCard() {
     cardImg.classList.add("cardImg")
 
     cardFront.append(cardImg)
+    cardBack.append(circle)
     card.append(cardBack, cardFront)
 
     return { card, cardBack, cardFront, cardImg }
