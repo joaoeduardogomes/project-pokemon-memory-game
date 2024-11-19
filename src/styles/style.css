@@ -28,6 +28,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #c4c4c4;
+}
+
 main {
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -84,12 +88,12 @@ main {
     background-color: #fff; 
     transform: rotateY(180deg); 
     border: 6px solid;
-}
 
-.cardImg {
-    max-width: 90%; 
-    max-height: 90%;
-    filter: drop-shadow(3px 3px 7px #ffffff85); 
+    .cardImg {
+        max-width: 90%; 
+        max-height: 90%;
+        filter: drop-shadow(3px 3px 7px #ffffff85); 
+    }
 }
 
 .card.flipped .card-front {
@@ -98,6 +102,10 @@ main {
 
 .card.flipped .card-back {
     transform: rotateY(180deg); 
+}
+
+.match {
+    filter: grayscale(0.5);
 }
 
 
