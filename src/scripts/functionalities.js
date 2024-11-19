@@ -13,6 +13,8 @@ function changeCardColors(cards) {
 }
 
 function checkForMatch(flippedCards) {
+    checks++;
+    
     const [card1, card2] = flippedCards;
     const front1 = card1.querySelector(".card-front");
     const front2 = card2.querySelector(".card-front");
@@ -23,7 +25,12 @@ function checkForMatch(flippedCards) {
             card2.classList.add("match");
         }, 1000)
 
+        matches++;
+
         flippedCards.length = 0;
+
+        if (matches === 8)
+            finishGame();
     } else {
         // Wait and then flip back mismatched cards
         setTimeout(() => {
@@ -35,7 +42,18 @@ function checkForMatch(flippedCards) {
     }
 }
 
+function finishGame() {
+    document.querySelector("#game-finish").classList.remove("hidden");
+    document.querySelector("#checks").textContent = checks;
+
+    document.querySelector("#btn").addEventListener("click", () => {
+        window.location.reload(true);
+    });
+}
+
 let flippedCards = [];
+let checks = 0;
+let matches = 0;
 
 // Add event listener for cards when they're ready
 document.addEventListener("cardsReady", () => {

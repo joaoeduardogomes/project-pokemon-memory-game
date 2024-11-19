@@ -45,6 +45,7 @@
 
 body {
     background-color: #c4c4c4;
+    font-family: var(--main-font);
 }
 
 main {
@@ -54,7 +55,6 @@ main {
 
     width: fit-content;
     margin: auto;
-    font-family: var(--main-font);
     margin: 2rem auto;
 }
 
@@ -124,6 +124,36 @@ main {
     animation: match-animation 0.5s ease-in-out;
 }
 
+#game-finish {
+    text-align: center;
+    margin: 2rem auto;
+    font-size: 1.2rem;
+    background-color: #ffffff83;
+    padding: 1rem;
+
+
+    #checks {
+        color: #E41F25;
+        font-weight: bold;
+    }
+
+    #btn {
+        background-color: #000;
+        color: #fff;
+        border: none;
+        padding: .5rem;
+        border-radius: 15px;
+        font-size: 1.15rem;
+        font-weight: bold;
+        letter-spacing: .115rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+
+        &:hover {
+            background-color: #E41F25;
+        }
+    }
+}
 
 .hidden {
     display: none;
