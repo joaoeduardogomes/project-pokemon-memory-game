@@ -9,11 +9,11 @@ document.addEventListener("cardsReady", () => {
             card.classList.toggle("flipped");
         });
     });
-    changeBackgroundColor(cards);
+    changeCardColors(cards);
 });
 
 
-function changeBackgroundColor(cards) {
+function changeCardColors(cards) {
 
     cards.forEach(card => {
         const cardFront = card.querySelector(".card-front")

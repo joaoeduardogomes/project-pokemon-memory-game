@@ -56,36 +56,38 @@ main {
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    transition: transform 0.5s ease-in-out; /* Smooth flipping */
+    transition: transform 0.5s ease-in-out;
     box-shadow: 3px 3px 7px #00000071;
 }
 
 .card-back {
-    background-image: linear-gradient(to bottom, #E41F25 50%, #FFF 50%);
-    transform: rotateY(0); /* Default: visible side */
+    background: linear-gradient(to bottom, #E41F25 49%, #000 49%, #000 51%, #FFF 51%),
+    radial-gradient(circle, #FFF 0%, #FFF 15%, transparent 15%);
+    border: 4px solid #000;
+    transform: rotateY(0); 
 }
 
 .card-front {
-    display: flex; /* Ensure proper layout for the image */
+    display: flex; 
     justify-content: center;
     align-items: center;
-    background-color: #fff; /* Fallback color */
-    transform: rotateY(180deg); /* Default: hidden */
+    background-color: #fff; 
+    transform: rotateY(180deg); 
     border: 6px solid;
 }
 
 .cardImg {
-    max-width: 90%; /* Ensure image fits inside card */
+    max-width: 90%; 
     max-height: 90%;
-    filter: drop-shadow(3px 3px 7px #ffffff85); /* Optional visual effect */
+    filter: drop-shadow(3px 3px 7px #ffffff85); 
 }
 
 .card.flipped .card-front {
-    transform: rotateY(0); /* Make front visible */
+    transform: rotateY(0);
 }
 
 .card.flipped .card-back {
-    transform: rotateY(180deg); /* Hide back */
+    transform: rotateY(180deg); 
 }
 
 
