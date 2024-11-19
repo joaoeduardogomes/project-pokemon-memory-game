@@ -50,14 +50,30 @@ async function addValuesToCard({ card, cardImg }) {
 
         card.dataset.pokemonName = data.name
         card.dataset.type1 = data.type1
-        card.dataset.type2 = data.type2 ? data.type2 : null
+        card.dataset.type2 = data.type2 
         cardImg.src = data.image
 
         cardsArray.push(card)
         cardsArray.push(card.cloneNode(true))
+
     } catch (error) {
         console.error('Error fetching data:', error)
     }
+}
+
+function changeBackgroundColor() {
+    cardsArray.forEach(card => {
+        if (!card.dataset.type2) {
+            card.style.backgroundImage = `linear-gradient(to top left, var(--color-${card.dataset.type1}) 50%, #fff 50%)`
+
+            card.style.borderColor = `var(--color-${card.dataset.type1}) #fff #fff var(--color-${card.dataset.type1})`
+        }
+        else {
+            card.style.backgroundImage = `linear-gradient(to top right, var(--color-${card.dataset.type1}) 50%, var(--color-${card.dataset.type2}) 50%)`
+
+            card.style.borderColor = `var(--color-${card.dataset.type1}) var(--color-${card.dataset.type1}) var(--color-${card.dataset.type2}) var(--color-${card.dataset.type2})`
+        }
+    })
 }
 
 function shuffleArray(array) {
@@ -85,6 +101,7 @@ async function showData() {
         fragment.append(card)
     }
     document.querySelector("main").appendChild(fragment)
+    changeBackgroundColor()
 }
 
 showData()
