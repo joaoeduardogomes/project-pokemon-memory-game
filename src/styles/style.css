@@ -59,7 +59,6 @@ main {
 }
 
 .card {
-    background-color: #f5f5f5;
     width: 220px;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
@@ -162,5 +161,15 @@ main {
 @media screen and (max-width: 425px) {
     main {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+        max-width: 160px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .card {
+        max-width: 120px;
     }
 }
