@@ -1,6 +1,6 @@
 ![image](https://github.com/user-attachments/assets/fb443ba1-8eee-48cc-b9c8-6be803c671ab)
 
-# Pokémon Memory Game **🇺🇸**
+# Pokémon Memory Game
 
 This is a simple project of a memory game using pokémon theme.
 
